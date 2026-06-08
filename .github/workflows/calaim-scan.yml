@@ -1,0 +1,69 @@
+name: CalAIM Policy Scan
+
+on:
+  schedule:
+    # Runs at 8am PT (15:00 UTC) every day
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+    inputs:
+      scan_type:
+        description: 'Force a specific scan type (default: auto-detect from day of week)'
+        required: false
+        default: 'auto'
+        type: choice
+        options: [auto, daily, weekly]
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic requests beautifulsoup4 feedparser
+
+      - name: Determine scan type
+        id: scan_type
+        run: |
+          INPUT="${{ github.event.inputs.scan_type }}"
+          if [ "$INPUT" = "weekly" ]; then
+            echo "type=weekly" >> $GITHUB_OUTPUT
+            echo "Forced weekly scan"
+          elif [ "$INPUT" = "daily" ]; then
+            echo "type=daily" >> $GITHUB_OUTPUT
+            echo "Forced daily scan"
+          elif [ "$(date -u +%u)" = "1" ]; then
+            echo "type=weekly" >> $GITHUB_OUTPUT
+            echo "Auto-detected: Monday = weekly scan"
+          else
+            echo "type=daily" >> $GITHUB_OUTPUT
+            echo "Auto-detected: weekday = daily scan"
+          fi
+
+      - name: Run scan and update dashboard data
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SCAN_TYPE: ${{ steps.scan_type.outputs.type }}
+        run: python scripts/update_dashboard.py
+
+      - name: Commit and push updated data
+        run: |
+          git config user.email "calaim-scanner@github-actions"
+          git config user.name "CalAIM Scanner"
+          git add data.json
+          if git diff --staged --quiet; then
+            echo "No changes found — skipping commit"
+          else
+            git commit -m "CalAIM ${{ steps.scan_type.outputs.type }} scan: $(date -u +%Y-%m-%d)"
+            git push
+          fi
