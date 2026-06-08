@@ -1,133 +1,195 @@
 {
-  "lastUpdated": "June 2, 2026",
+  "lastUpdated": "June 8, 2026",
   "currentVersion": {
     "id": "current",
-    "label": "June 2, 2026 (current)",
-    "scanDate": "June 2, 2026",
+    "label": "June 8, 2026 (current)",
+    "scanDate": "June 8, 2026",
     "dailyUpdates": [],
     "news": [
       {
         "tag": "tag-federal",
         "label": "Federal",
-        "headline": "How Massive Federal Cuts Will Create Unprecedented Challenges for Medi-Cal Patients and Providers",
-        "url": "https://www.chcf.org/resource/how-massive-federal-cuts-will-create-unprecedented-challenges-medi-cal-patients-providers/",
-        "summary": "CHCF analysis of H.R. 1: up to 2M Californians losing coverage, $30B/year in lost federal funds, and cascading effects on providers, plans, and safety-net infrastructure.",
-        "source": "CHCF · 2026"
+        "headline": "State Condemns Federal Deferral of IHSS Funds, Warns of Immediate Harm to Hundreds of Thousands of Vulnerable Californians",
+        "url": "https://www.dhcs.ca.gov/news/state-condemns-federal-deferral-of-ihss-funds-warns-of-immediate-harm-to-hundreds-of-thousands-of-vulnerable-californians/",
+        "summary": "California's state government has formally condemned a federal decision to defer In-Home Supportive Services (IHSS) funding, warning of immediate harm to hundreds of thousands of vulnerable Californians who rely on the program. IHSS is a key Community Supports-adjacent service for Medi-Cal beneficiaries, and funding disruptions could destabilize care for populations that CalAIM's Enhanced Care Management program also serves.",
+        "source": "DHCS \u00b7 June 8, 2026"
       },
       {
         "tag": "tag-federal",
         "label": "Federal",
-        "headline": "H.R. 1 Cuts to Medi-Cal Impact Californians in Every Legislative District",
-        "url": "https://calbudgetcenter.org/resources/h-r-1-cuts-to-medi-cal-impact-californians-in-every-legislative-district/",
-        "summary": "Cal Budget Center maps H.R. 1 Medi-Cal cuts by legislative district, showing broad geographic reach of eligibility losses and reduced federal matching funds.",
-        "source": "Cal Budget Center · 2026"
-      },
-      {
-        "tag": "tag-legislative",
-        "label": "Legislative",
-        "headline": "Will California Restore Medi-Cal for Undocumented Immigrants?",
-        "url": "https://calmatters.org/health/2026/03/durazo-reverse-medical-undocumented-immigrants/",
-        "summary": "CalMatters covers the push behind SB 1422 and the political dynamics of restoring Medi-Cal enrollment for undocumented adults amid the state's budget crunch and federal pressure.",
-        "source": "CalMatters · March 2026"
-      },
-      {
-        "tag": "tag-legislative",
-        "label": "Legislative",
-        "headline": "California Lawmakers Introduce Bills to Lessen Harmful Impact of H.R. 1 for Medi-Cal Enrollees",
-        "url": "https://healthlaw.org/news/california-lawmakers-introduce-legislative-bills-to-lessen-harmful-impact-of-h-r-1-for-medi-cal-applicants-and-enrollees/",
-        "summary": "NHeLP covers AB 2161 and companion bills designed to minimize administrative burden of H.R. 1 work requirements on Medi-Cal members, including exemption protections.",
-        "source": "National Health Law Program · 2026"
+        "headline": "Millions of Kids Could Lose Insurance as GOP Healthcare Cuts Start To Bite",
+        "url": "https://kffhealthnews.org/insurance/health-hub-kids-lose-insurance-coverage-gop-healthcare-cuts/",
+        "summary": "Federal cuts embedded in the 2025 GOP budget law (H.R. 1) are beginning to affect Medicaid coverage, with millions of children at risk of losing insurance as states face new eligibility and financing constraints. California's Medi-Cal program, including CalAIM's managed care and ECM infrastructure, could face enrollment and funding pressures as these cuts take effect.",
+        "source": "KFF Health News \u00b7 June 5, 2026"
       },
       {
         "tag": "tag-waiver",
-        "label": "Waiver",
-        "headline": "National Context for California's Renewal of CalAIM in 2026",
-        "url": "https://www.chcs.org/resource/national-context-for-californias-renewal-of-calaim-in-2026/",
-        "summary": "CHCS situates CalAIM's waiver renewal within the national Medicaid landscape, noting CMS restrictions on ILOS signal a tougher negotiating environment for the 2027-2031 renewal.",
-        "source": "CHCS · 2026"
-      },
-      {
-        "tag": "tag-ecm",
-        "label": "ECM",
-        "headline": "The Future of Enhanced Care Management: Why CalAIM Must Be Protected",
-        "url": "https://presidiumhealth.com/future-of-enhanced-care-management-calaim-advocacy/",
-        "summary": "Provider-perspective advocacy piece making the case for protecting ECM in the waiver renewal, citing utilization data and risk of rollback under federal budget pressure.",
-        "source": "Presidium Health · 2026"
-      },
-      {
-        "tag": "tag-budget",
-        "label": "Budget",
-        "headline": "The 2026-27 Budget: Medi-Cal Fiscal Outlook",
-        "url": "https://lao.ca.gov/Publications/Report/5092",
-        "summary": "LAO highlights the combined squeeze of H.R. 1 cuts and state budget constraints, including proposed ECM spending of $956M and CS spending of $231M for 2025-26.",
-        "source": "LAO · 2026"
+        "label": "Waiver / Reentry",
+        "headline": "California Releases First Impact Report on Groundbreaking Justice-Involved Reentry Initiative",
+        "url": "https://www.dhcs.ca.gov/news/california-releases-first-justice-involved-reentry-initiative-impact-report/",
+        "summary": "DHCS published its first impact report on California's justice-involved reentry initiative, a CalAIM flagship program that extends Medi-Cal services \u2014 including ECM and Community Supports \u2014 to incarcerated individuals 90 days prior to release. The report marks a significant milestone in evaluating the program's outcomes and informing future 1115 waiver negotiations with the federal government.",
+        "source": "DHCS \u00b7 June 8, 2026"
       }
     ],
     "policy": [
       {
         "key": "p0",
-        "tag": "tag-waiver",
-        "label": "Waiver",
-        "headline": "CalAIM 1915(b) Waiver Renewal Comment Period Open",
-        "url": "https://www.dhcs.ca.gov/provgovpart/Pages/CalAIM-1115-and-1915b-Waiver-Renewals.aspx",
-        "summary": "DHCS opened a 30-day public comment period (May 21 to June 20, 2026) on the five-year CalAIM 1915(b) renewal covering managed care, SMHS, dental, and DMC-ODS. Proposed renewal runs 2027-2031.",
-        "source": "DHCS · May 2026"
+        "tag": "tag-mmcd",
+        "label": "Managed Care",
+        "headline": "Attachment A: Network Provider Agreement Template Checklist",
+        "url": "https://www.dhcs.ca.gov/file/file-189187/",
+        "summary": "DHCS released an updated Network Provider Agreement Template Checklist, which governs contracting standards between Medi-Cal managed care plans and their network providers. This document is directly relevant to managed care network adequacy requirements under CalAIM and associated APL compliance obligations.",
+        "source": "DHCS \u00b7 June 8, 2026"
       },
       {
         "key": "p1",
-        "tag": "tag-federal",
-        "label": "Federal",
-        "headline": "H.R. 1 Cuts ~$30B/Year from Medi-Cal — Implementation Underway",
-        "url": "https://www.dhcs.ca.gov/federal-impacts/Pages/Medi-Cal-Eligibility.aspx",
-        "summary": "Key CA impacts: retroactive coverage reduced to 2 months (2027), some immigrants lose eligibility Oct 2026, and 80hrs/month work requirements take effect Jan 2027.",
-        "source": "DHCS · 2026"
+        "tag": "tag-mmcd",
+        "label": "Managed Care / Quality",
+        "headline": "Quality Measures for Encounter Data \u2014 Version 2.0",
+        "url": "https://www.dhcs.ca.gov/file/quality-measures-for-encounter-data/",
+        "summary": "DHCS published Version 2.0 of its Quality Measures for Encounter Data, updating the technical specifications used to assess Medi-Cal managed care plan performance through encounter data submissions. Accurate encounter data is foundational to CalAIM's value-based care goals and DHCS oversight of plan quality.",
+        "source": "DHCS \u00b7 June 8, 2026"
       },
       {
         "key": "p2",
         "tag": "tag-mmcd",
-        "label": "Managed Care",
-        "headline": "New APLs: BH Data-Sharing (26-004) and MH Referral Coordination (26-002)",
-        "url": "https://www.dhcs.ca.gov/formsandpubs/Pages/AllPlanLetters.aspx",
-        "summary": "APL 26-002 updates the MH referral coordination framework between MCPs and county mental health plans. APL 26-004 covers BH data-sharing — both directly affect ECM behavioral health workflows.",
-        "source": "DHCS All-Plan Letters · 2026"
-      },
-      {
-        "key": "p3",
-        "tag": "tag-cs",
-        "label": "Community Supports",
-        "headline": "CS Reaches 520K+ Members — 1.3M Services Delivered Statewide",
-        "url": "https://www.dhcs.ca.gov/newsroom-office-of-communications/medi-cal-care-innovations-reach-more-californians-than-ever/",
-        "summary": "94% of Medi-Cal members now have access to the full suite of 15 CS services. Housing-related supports including the new Transitional Rent service are broadly available statewide.",
-        "source": "DHCS Quarterly Report · 2025-26"
-      },
-      {
-        "key": "p4",
-        "tag": "tag-ecm",
-        "label": "ECM",
-        "headline": "LAO Flags ECM Reach Gap — Only 20% of Homeless Members Enrolled",
-        "url": "https://lao.ca.gov/Publications/Report/5003",
-        "summary": "A March 2025 LAO report found ECM utilization at just 0.9% of MCP members in 2024, with only about 20% of homeless-identified members receiving ECM — flagged ahead of the waiver renewal.",
-        "source": "LAO · March 2025"
-      },
-      {
-        "key": "p5",
-        "tag": "tag-legislative",
-        "label": "Legislative",
-        "headline": "AB 2161 and SB 1422 — Work Requirements and Immigrant Coverage",
-        "url": "https://leginfo.legislature.ca.gov",
-        "summary": "AB 2161 shapes how CA implements H.R. 1 work requirements to minimize member burden. SB 1422 would restore full-scope Medi-Cal for immigrant adults 19+. SB 1422 ordered to third reading.",
-        "source": "CA Legislature · 2025-26 Session"
-      },
-      {
-        "key": "p6",
-        "tag": "tag-mmcd",
-        "label": "Managed Care",
-        "headline": "Medi-Medi Plans Open for Enrollment in Most Counties (2026)",
-        "url": "https://www.dhcs.ca.gov/provgovpart/Documents/2026-Medi-Medi-Plan-List.pdf",
-        "summary": "Dual-eligible Medicare and Medi-Cal Medi-Medi Plans launched enrollment across most California counties in 2026 as part of managed care restructuring under CalAIM.",
-        "source": "DHCS · 2026"
+        "label": "Managed Care / Behavioral Health",
+        "headline": "Attachment A: DHCS-Approved Youth Trauma Screening Tools for Specialty Mental Health Services Access Criteria (APL 26-002)",
+        "url": "https://www.dhcs.ca.gov/file/apl26-002attachmenta/",
+        "summary": "DHCS released Attachment A to APL 26-002, providing the official list of approved youth trauma screening tools that managed care plans and county mental health plans must use when determining access to Specialty Mental Health Services. This guidance is relevant to CalAIM's behavioral health integration efforts and the screening requirements tied to ECM and broader Medi-Cal managed care contracts.",
+        "source": "DHCS \u00b7 June 8, 2026"
       }
     ]
   },
-  "archive": []
+  "archive": [
+    {
+      "id": "June-2-2026",
+      "label": "June 2, 2026",
+      "scanDate": "June 2, 2026",
+      "dailyUpdates": [],
+      "news": [
+        {
+          "tag": "tag-federal",
+          "label": "Federal",
+          "headline": "How Massive Federal Cuts Will Create Unprecedented Challenges for Medi-Cal Patients and Providers",
+          "url": "https://www.chcf.org/resource/how-massive-federal-cuts-will-create-unprecedented-challenges-medi-cal-patients-providers/",
+          "summary": "CHCF analysis of H.R. 1: up to 2M Californians losing coverage, $30B/year in lost federal funds, and cascading effects on providers, plans, and safety-net infrastructure.",
+          "source": "CHCF \u00b7 2026"
+        },
+        {
+          "tag": "tag-federal",
+          "label": "Federal",
+          "headline": "H.R. 1 Cuts to Medi-Cal Impact Californians in Every Legislative District",
+          "url": "https://calbudgetcenter.org/resources/h-r-1-cuts-to-medi-cal-impact-californians-in-every-legislative-district/",
+          "summary": "Cal Budget Center maps H.R. 1 Medi-Cal cuts by legislative district, showing broad geographic reach of eligibility losses and reduced federal matching funds.",
+          "source": "Cal Budget Center \u00b7 2026"
+        },
+        {
+          "tag": "tag-legislative",
+          "label": "Legislative",
+          "headline": "Will California Restore Medi-Cal for Undocumented Immigrants?",
+          "url": "https://calmatters.org/health/2026/03/durazo-reverse-medical-undocumented-immigrants/",
+          "summary": "CalMatters covers the push behind SB 1422 and the political dynamics of restoring Medi-Cal enrollment for undocumented adults amid the state's budget crunch and federal pressure.",
+          "source": "CalMatters \u00b7 March 2026"
+        },
+        {
+          "tag": "tag-legislative",
+          "label": "Legislative",
+          "headline": "California Lawmakers Introduce Bills to Lessen Harmful Impact of H.R. 1 for Medi-Cal Enrollees",
+          "url": "https://healthlaw.org/news/california-lawmakers-introduce-legislative-bills-to-lessen-harmful-impact-of-h-r-1-for-medi-cal-applicants-and-enrollees/",
+          "summary": "NHeLP covers AB 2161 and companion bills designed to minimize administrative burden of H.R. 1 work requirements on Medi-Cal members, including exemption protections.",
+          "source": "National Health Law Program \u00b7 2026"
+        },
+        {
+          "tag": "tag-waiver",
+          "label": "Waiver",
+          "headline": "National Context for California's Renewal of CalAIM in 2026",
+          "url": "https://www.chcs.org/resource/national-context-for-californias-renewal-of-calaim-in-2026/",
+          "summary": "CHCS situates CalAIM's waiver renewal within the national Medicaid landscape, noting CMS restrictions on ILOS signal a tougher negotiating environment for the 2027-2031 renewal.",
+          "source": "CHCS \u00b7 2026"
+        },
+        {
+          "tag": "tag-ecm",
+          "label": "ECM",
+          "headline": "The Future of Enhanced Care Management: Why CalAIM Must Be Protected",
+          "url": "https://presidiumhealth.com/future-of-enhanced-care-management-calaim-advocacy/",
+          "summary": "Provider-perspective advocacy piece making the case for protecting ECM in the waiver renewal, citing utilization data and risk of rollback under federal budget pressure.",
+          "source": "Presidium Health \u00b7 2026"
+        },
+        {
+          "tag": "tag-budget",
+          "label": "Budget",
+          "headline": "The 2026-27 Budget: Medi-Cal Fiscal Outlook",
+          "url": "https://lao.ca.gov/Publications/Report/5092",
+          "summary": "LAO highlights the combined squeeze of H.R. 1 cuts and state budget constraints, including proposed ECM spending of $956M and CS spending of $231M for 2025-26.",
+          "source": "LAO \u00b7 2026"
+        }
+      ],
+      "policy": [
+        {
+          "key": "p0",
+          "tag": "tag-waiver",
+          "label": "Waiver",
+          "headline": "CalAIM 1915(b) Waiver Renewal Comment Period Open",
+          "url": "https://www.dhcs.ca.gov/provgovpart/Pages/CalAIM-1115-and-1915b-Waiver-Renewals.aspx",
+          "summary": "DHCS opened a 30-day public comment period (May 21 to June 20, 2026) on the five-year CalAIM 1915(b) renewal covering managed care, SMHS, dental, and DMC-ODS. Proposed renewal runs 2027-2031.",
+          "source": "DHCS \u00b7 May 2026"
+        },
+        {
+          "key": "p1",
+          "tag": "tag-federal",
+          "label": "Federal",
+          "headline": "H.R. 1 Cuts ~$30B/Year from Medi-Cal \u2014 Implementation Underway",
+          "url": "https://www.dhcs.ca.gov/federal-impacts/Pages/Medi-Cal-Eligibility.aspx",
+          "summary": "Key CA impacts: retroactive coverage reduced to 2 months (2027), some immigrants lose eligibility Oct 2026, and 80hrs/month work requirements take effect Jan 2027.",
+          "source": "DHCS \u00b7 2026"
+        },
+        {
+          "key": "p2",
+          "tag": "tag-mmcd",
+          "label": "Managed Care",
+          "headline": "New APLs: BH Data-Sharing (26-004) and MH Referral Coordination (26-002)",
+          "url": "https://www.dhcs.ca.gov/formsandpubs/Pages/AllPlanLetters.aspx",
+          "summary": "APL 26-002 updates the MH referral coordination framework between MCPs and county mental health plans. APL 26-004 covers BH data-sharing \u2014 both directly affect ECM behavioral health workflows.",
+          "source": "DHCS All-Plan Letters \u00b7 2026"
+        },
+        {
+          "key": "p3",
+          "tag": "tag-cs",
+          "label": "Community Supports",
+          "headline": "CS Reaches 520K+ Members \u2014 1.3M Services Delivered Statewide",
+          "url": "https://www.dhcs.ca.gov/newsroom-office-of-communications/medi-cal-care-innovations-reach-more-californians-than-ever/",
+          "summary": "94% of Medi-Cal members now have access to the full suite of 15 CS services. Housing-related supports including the new Transitional Rent service are broadly available statewide.",
+          "source": "DHCS Quarterly Report \u00b7 2025-26"
+        },
+        {
+          "key": "p4",
+          "tag": "tag-ecm",
+          "label": "ECM",
+          "headline": "LAO Flags ECM Reach Gap \u2014 Only 20% of Homeless Members Enrolled",
+          "url": "https://lao.ca.gov/Publications/Report/5003",
+          "summary": "A March 2025 LAO report found ECM utilization at just 0.9% of MCP members in 2024, with only about 20% of homeless-identified members receiving ECM \u2014 flagged ahead of the waiver renewal.",
+          "source": "LAO \u00b7 March 2025"
+        },
+        {
+          "key": "p5",
+          "tag": "tag-legislative",
+          "label": "Legislative",
+          "headline": "AB 2161 and SB 1422 \u2014 Work Requirements and Immigrant Coverage",
+          "url": "https://leginfo.legislature.ca.gov",
+          "summary": "AB 2161 shapes how CA implements H.R. 1 work requirements to minimize member burden. SB 1422 would restore full-scope Medi-Cal for immigrant adults 19+. SB 1422 ordered to third reading.",
+          "source": "CA Legislature \u00b7 2025-26 Session"
+        },
+        {
+          "key": "p6",
+          "tag": "tag-mmcd",
+          "label": "Managed Care",
+          "headline": "Medi-Medi Plans Open for Enrollment in Most Counties (2026)",
+          "url": "https://www.dhcs.ca.gov/provgovpart/Documents/2026-Medi-Medi-Plan-List.pdf",
+          "summary": "Dual-eligible Medicare and Medi-Cal Medi-Medi Plans launched enrollment across most California counties in 2026 as part of managed care restructuring under CalAIM.",
+          "source": "DHCS \u00b7 2026"
+        }
+      ]
+    }
+  ]
 }
