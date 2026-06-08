@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CalAIM Policy Tracker</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f6f8; color: #1a1a2e; font-size: 14px; line-height: 1.5; }
+
+  .header { background: #1a3a5c; color: white; padding: 16px 20px 12px; }
+  .header-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; gap: 16px; }
+  .header h1 { font-size: 18px; font-weight: 700; }
+  .header .subtitle { font-size: 12px; opacity: 0.75; margin-top: 2px; }
+  .countdown-bar { display: flex; gap: 8px; flex-wrap: wrap; }
+  .countdown-pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 10px; font-size: 11px; display: flex; align-items: center; gap: 5px; }
+  .countdown-pill.urgent { background: rgba(239,68,68,0.3); border-color: rgba(239,68,68,0.5); }
+  .countdown-pill.warning { background: rgba(245,158,11,0.25); border-color: rgba(245,158,11,0.4); }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+  .version-picker { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .version-picker label { font-size: 11px; opacity: 0.75; white-space: nowrap; }
+  .version-select { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; font-size: 12px; padding: 4px 8px; border-radius: 6px; cursor: pointer; }
+  .version-select option { background: #1a3a5c; color: white; }
+
+  .archive-banner { background: #f59e0b; color: #1a1a2e; padding: 8px 20px; font-size: 12px; font-weight: 600; display: none; align-items: center; gap: 8px; }
+  .archive-banner.visible { display: flex; }
+  .archive-banner button { background: #1a1a2e; color: white; border: none; padding: 3px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: 600; margin-left: auto; }
+
+  .daily-banner { background: #ecfdf5; border-bottom: 2px solid #10b981; padding: 8px 20px; font-size: 12px; display: none; align-items: center; gap: 8px; color: #065f46; }
+  .daily-banner.visible { display: flex; }
+  .daily-dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; flex-shrink: 0; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .loading { padding: 60px 20px; text-align: center; color: #9ca3af; }
+  .loading-spinner { width: 32px; height: 32px; border: 3px solid #e5e7eb; border-top-color: #6366f1; border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto 12px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .main { padding: 16px; display: grid; gap: 14px; }
+  .section { background: white; border-radius: 10px; border: 1px solid #e8eaed; overflow: hidden; }
+  .section-header { padding: 10px 14px; border-bottom: 1px solid #f0f2f4; display: flex; align-items: center; justify-content: space-between; background: #fafbfc; font-weight: 600; font-size: 13px; color: #2d3748; }
+  .scan-date { font-size: 11px; color: #9ca3af; font-weight: 400; }
+  .section-body { padding: 14px; }
+
+  .action-item { border-left: 3px solid #ef4444; background: #fef2f2; border-radius: 0 6px 6px 0; padding: 10px 12px; margin-bottom: 8px; }
+  .action-item:last-child { margin-bottom: 0; }
+  .action-title { font-weight: 600; font-size: 13px; color: #991b1b; margin-bottom: 3px; }
+  .action-body { font-size: 12px; color: #4b5563; line-height: 1.5; }
+  .action-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 6px; }
+  .deadline { display: inline-block; background: #ef4444; color: white; font-size: 10px; font-weight: 600; padding: 1px 7px; border-radius: 10px; }
+
+  .news-item { padding: 11px 0; border-bottom: 1px solid #f0f2f4; }
+  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .news-item:first-child { padding-top: 0; }
+  .news-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+  .news-meta { flex: 1; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 1px 7px; border-radius: 10px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .tag-ecm { background: #dbeafe; color: #1d4ed8; }
+  .tag-cs { background: #d1fae5; color: #065f46; }
+  .tag-mmcd { background: #ede9fe; color: #5b21b6; }
+  .tag-waiver { background: #fef3c7; color: #92400e; }
+  .tag-federal { background: #fee2e2; color: #991b1b; }
+  .tag-legislative { background: #e0f2fe; color: #0369a1; }
+  .tag-budget { background: #fdf4ff; color: #7e22ce; }
+  .headline { font-weight: 600; font-size: 13px; color: #1a1a2e; margin-bottom: 3px; }
+  .headline a { color: inherit; text-decoration: none; }
+  .headline a:hover { text-decoration: underline; color: #4338ca; }
+  .summary { font-size: 12px; color: #4b5563; line-height: 1.5; }
+  .source { font-size: 11px; color: #9ca3af; margin-top: 4px; }
+  .dive-btn { flex-shrink: 0; background: #f0f4ff; border: 1px solid #c7d2fe; color: #4338ca; font-size: 11px; font-weight: 600; padding: 5px 11px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+  .dive-btn:hover { background: #e0e7ff; }
+  .dive-btn.active { background: #4338ca; color: white; border-color: #4338ca; }
+
+  .news-sources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .news-source-card { display: flex; flex-direction: column; gap: 4px; padding: 12px; background: #f8fafc; border: 1px solid #e8eaed; border-radius: 8px; text-decoration: none; color: inherit; transition: background 0.1s, border-color 0.1s; }
+  .news-source-card:hover { background: white; border-color: #a5b4fc; }
+  .news-source-top { display: flex; align-items: center; justify-content: space-between; }
+  .news-source-name { font-weight: 700; font-size: 13px; color: #1a1a2e; }
+  .news-source-arrow { color: #9ca3af; }
+  .news-source-card:hover .news-source-arrow { color: #6366f1; }
+  .news-source-desc { font-size: 11px; color: #6b7280; line-height: 1.4; }
+  .news-source-tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 8px; margin-top: 4px; }
+  .tag-news     { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+  .tag-research { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+  .tag-policy   { background: #faf5ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+  .tag-govt     { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .horizon-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .horizon-table th { text-align: left; padding: 6px 8px; background: #f8fafc; border-bottom: 1px solid #e8eaed; color: #6b7280; font-weight: 600; font-size: 11px; text-transform: uppercase; }
+  .horizon-table td { padding: 7px 8px; border-bottom: 1px solid #f0f2f4; vertical-align: top; }
+  .horizon-table tr:last-child td { border-bottom: none; }
+  .date-cell { font-weight: 600; color: #1a3a5c; white-space: nowrap; width: 110px; }
+  .urgent-row td { background: #fef9f9; }
+  .urgent-row .date-cell { color: #dc2626; }
+  .resource-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .resource-link { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #f8fafc; border: 1px solid #e8eaed; border-radius: 6px; text-decoration: none; color: #1a3a5c; font-size: 12px; font-weight: 500; }
+  .resource-link:hover { background: #eef2ff; border-color: #c7d2fe; }
+  .status-note { font-size: 11px; color: #9ca3af; padding: 6px 14px; border-top: 1px solid #f0f2f4; background: #fafbfc; font-style: italic; }
+
+  .ask-panel { background: #1e1b4b; border-top: 2px solid #4338ca; padding: 14px 16px; display: none; border-radius: 10px; }
+  .ask-panel.visible { display: block; }
+  .ask-label { font-size: 11px; font-weight: 700; color: #a5b4fc; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .ask-hint { font-size: 11px; color: #818cf8; margin-top: 8px; }
+  textarea.ask-textarea { width: 100%; background: #312e81; border: 1px solid #4338ca; border-radius: 6px; padding: 10px 12px; font-size: 12px; color: #e0e7ff; line-height: 1.6; font-family: inherit; resize: none; min-height: 72px; cursor: text; }
+  textarea.ask-textarea:focus { outline: 2px solid #6366f1; }
+  .empty-state { text-align: center; color: #9ca3af; font-size: 12px; padding: 20px; font-style: italic; }
+  .updated-note { font-size: 11px; color: #9ca3af; text-align: right; padding: 4px 20px 8px; }
+
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } .resource-grid { grid-template-columns: 1fr; } .news-sources-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 400px) { .news-sources-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div id="loadingState">
+  <div class="loading">
+    <div class="loading-spinner"></div>
+    Loading CalAIM data...
+  </div>
+</div>
+
+<div id="appState" style="display:none">
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>CalAIM Policy Tracker</h1>
+      <div class="subtitle">ECM &middot; Community Supports &middot; Medi-Cal Managed Care</div>
+    </div>
+    <div class="version-picker">
+      <label>Version:</label>
+      <select class="version-select" id="versionSelect" onchange="switchVersion(this.value)"></select>
+    </div>
+  </div>
+  <div class="countdown-bar" id="countdownBar"></div>
+</div>
+
+<div class="archive-banner" id="archiveBanner">
+  Viewing archived version &mdash; not current
+  <button onclick="switchVersion('current')">Back to current</button>
+</div>
+
+<div class="daily-banner" id="dailyBanner">
+  <span class="daily-dot"></span>
+  <span id="dailyBannerText">New items found in today's scan</span>
+</div>
+
+<div class="updated-note" id="updatedNote"></div>
+
+<div class="main">
+  <div class="section" id="dailySection" style="display:none">
+    <div class="section-header">
+      <span id="dailySectionLabel">Today's Updates</span>
+      <span class="scan-date" id="dailyScanDate"></span>
+    </div>
+    <div class="section-body" id="dailyFeed"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">Action Items</div>
+    <div class="section-body" id="actionItems"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span>Recent News Stories</span>
+      <span class="scan-date" id="newsScanDate"></span>
+    </div>
+    <div class="section-body" id="newsFeed"></div>
+    <div class="status-note">Updated daily and weekly by GitHub Actions. Click headlines to open source articles.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span>Policy and Regulatory Updates</span>
+      <span class="scan-date" id="policyScanDate"></span>
+    </div>
+    <div class="section-body" id="policyFeed"></div>
+    <div class="status-note">Click "Deep dive" to get a question you can paste into Claude for a full briefing.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span>News Sources</span>
+      <span class="scan-date">Live &mdash; sorted by newest</span>
+    </div>
+    <div class="section-body">
+      <div class="news-sources-grid" id="newsSources"></div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="section">
+      <div class="section-header">On the Horizon</div>
+      <div style="padding:0">
+        <table class="horizon-table">
+          <thead><tr><th>Date</th><th>Item</th></tr></thead>
+          <tbody id="horizonBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-header">Official Resources</div>
+      <div class="section-body">
+        <div class="resource-grid" id="resourceGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ask-panel" id="askPanel">
+    <div class="ask-label">Ask Claude &mdash; click the box to select all, then Cmd+C / Ctrl+C to copy</div>
+    <textarea class="ask-textarea" id="askTextarea" readonly onclick="this.select()"></textarea>
+    <div class="ask-hint">Paste into Claude.ai or your Claude interface for a detailed policy briefing.</div>
+  </div>
+
+  <div style="height:16px"></div>
+</div>
+
+</div><!-- #appState -->
+
+<script>
+var CALAIM_DATA = null;
+var currentVersionId = "current";
+var activeBtn = null;
+
+// ── Deep dive prompts ─────────────────────────────────────────────────────────
+var P = {
+  a0: "Tell me more about the CalAIM 1915(b) waiver renewal. What are the key issues at stake, what has DHCS proposed, and what should an ECM or Community Supports provider focus on in a public comment?",
+  a1: "Tell me more about the CalAIM Justice-Involved Reentry initiative. What services are required, which counties are live, what do ECM providers need to do before the October 2026 mandate, and how does this connect to ECM populations of focus?",
+  a2: "Explain the Medi-Cal impacts of H.R. 1 in detail. Which populations are most at risk of losing coverage, what are the key effective dates, and what should ECM providers do now to prepare their workflows and member panels?",
+  p0: "Give me a detailed briefing on the CalAIM 1915(b) waiver renewal. What does it authorize, what is DHCS proposing for 2027-2031, what are the federal headwinds from CMS, and what should an ECM/CS organization focus on?",
+  p1: "Give me a comprehensive briefing on H.R. 1's impact on California Medi-Cal. Cover funding cuts, eligibility changes by population and date, work requirements, California's legislative response, and implications for ECM and CS programs.",
+  p2: "Explain DHCS APL 26-002 and APL 26-004 in plain language. What do these All-Plan Letters require? How do they change BH referral coordination? What do ECM lead care managers need to do differently?",
+  p3: "Give me a detailed overview of the CalAIM Community Supports program as of 2026. What are all 15 services across Volume 1 and Volume 2? What does utilization data show? What should providers know about operationalizing CS?",
+  p4: "Tell me more about the LAO March 2025 CalAIM ECM implementation report. What were the key findings on utilization gaps? What did the LAO recommend? What can ECM providers and MCPs do to improve enrollment?",
+  p5: "Explain AB 2161 and SB 1422. What does each bill propose, what is the current status, and what would passage mean for CalAIM programs and ECM providers?",
+  p6: "Explain the CalAIM Medi-Medi Plan rollout. What are Medi-Medi Plans, which counties are they in, and what does this mean for dually eligible members and ECM providers?"
+};
+
+function dive(key, btn) {
+  var prompt = P[key];
+  if (!prompt) return;
+  var ta = document.getElementById("askTextarea");
+  var panel = document.getElementById("askPanel");
+  ta.value = prompt;
+  panel.classList.add("visible");
+  panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  setTimeout(function() { ta.select(); }, 100);
+  if (activeBtn) activeBtn.classList.remove("active");
+  activeBtn = btn;
+  if (btn) btn.classList.add("active");
+}
+
+// ── Static data ───────────────────────────────────────────────────────────────
+var ACTIONS = [
+  { key: "a0", title: "CalAIM 1915(b) Waiver Public Comment &mdash; Closes June 20, 2026", body: "DHCS is accepting comments on the five-year renewal covering managed care, SMHS, dental, and DMC-ODS. Submit to 1115Waiver@dhcs.ca.gov.", deadline: "Due June 20" },
+  { key: "a1", title: "Justice-Involved Reentry &mdash; October 2026 County Mandate", body: "All CA counties must offer Justice-Involved Reentry services by October 2026. Currently active in 13 counties. Confirm referral pathways with your local MCP now.", deadline: "Oct 2026" },
+  { key: "a2", title: "H.R. 1 &mdash; Monitor Member Eligibility Panels", body: "Up to 2M Californians at risk of losing Medi-Cal. Immigrant eligibility changes Oct 2026; work requirements effective Jan 2027. Add eligibility monitoring to ECM lead care manager workflows.", deadline: "Oct 2026 / Jan 2027" }
+];
+
+var NEWS_SOURCES = [
+  { name: "CalMatters Health", desc: "California's leading health policy news outlet.", tag: "News", tagCls: "tag-news", url: "https://calmatters.org/?s=medi-cal+calaim&sort=newest" },
+  { name: "KFF Health News", desc: "National health policy journalism with strong CA Medicaid coverage.", tag: "News", tagCls: "tag-news", url: "https://kffhealthnews.org/?s=California+Medi-Cal+CalAIM&order=date-desc" },
+  { name: "Politico California", desc: "Capitol-focused health policy, budget, and legislation.", tag: "News", tagCls: "tag-news", url: "https://www.politico.com/search?q=medi-cal&s=newest" },
+  { name: "CHCF Medi-Cal", desc: "California Health Care Foundation Medi-Cal research hub.", tag: "Research", tagCls: "tag-research", url: "https://www.chcf.org/medi-cal/#recent" },
+  { name: "Health Affairs", desc: "Peer-reviewed CalAIM and Medi-Cal research.", tag: "Research", tagCls: "tag-research", url: "https://www.healthaffairs.org/action/doSearch?text1=calaim+medi-cal&sortBy=Ppub" },
+  { name: "CHCS &mdash; CalAIM", desc: "Implementation briefs and national Medicaid context.", tag: "Policy", tagCls: "tag-policy", url: "https://www.chcs.org/?s=CalAIM" },
+  { name: "Cal Budget Center", desc: "Fiscal and equity analysis of H.R. 1 and Medi-Cal budget.", tag: "Policy", tagCls: "tag-policy", url: "https://calbudgetcenter.org/?s=medi-cal" },
+  { name: "LAO Health", desc: "Legislative Analyst's Office independent CalAIM analysis.", tag: "Govt", tagCls: "tag-govt", url: "https://lao.ca.gov/Policy-Areas?areaId=6" },
+  { name: "DHCS Newsroom", desc: "Official DHCS press releases and CalAIM milestones.", tag: "Govt", tagCls: "tag-govt", url: "https://www.dhcs.ca.gov/newsroom-office-of-communications/" }
+];
+
+var HORIZON = [
+  { date: "Jun 20, 2026", label: "1915(b) waiver public comment closes", urgent: true },
+  { date: "Oct 1, 2026", label: "Some lawfully present immigrants lose Medi-Cal (H.R. 1)", urgent: false },
+  { date: "Oct 2026", label: "All counties must offer Justice-Involved Reentry services", urgent: false },
+  { date: "Dec 31, 2026", label: "CalAIM 1115 and 1915(b) waivers expire", urgent: false },
+  { date: "Jan 1, 2027", label: "Medi-Cal work and community engagement requirements take effect", urgent: false },
+  { date: "Jan 1, 2027", label: "Retroactive Medi-Cal coverage reduced to 2 months (H.R. 1)", urgent: false },
+  { date: "2027-2031", label: "Proposed CalAIM waiver renewal period (pending CMS)", urgent: false }
+];
+
+var RESOURCES = [
+  { icon: "&#x1F3DB;", label: "DHCS CalAIM", url: "https://www.dhcs.ca.gov/CalAIM" },
+  { icon: "&#x1F4CB;", label: "All-Plan Letters", url: "https://www.dhcs.ca.gov/formsandpubs/Pages/AllPlanLetters.aspx" },
+  { icon: "&#x1F504;", label: "ECM Resources", url: "https://www.dhcs.ca.gov/CalAIM/ECM/Pages/Resources.aspx" },
+  { icon: "&#x1F3E0;", label: "Community Supports", url: "https://calaim.dhcs.ca.gov/pages/community-supports" },
+  { icon: "&#x1F4C4;", label: "Waiver Renewal", url: "https://www.dhcs.ca.gov/provgovpart/Pages/CalAIM-1115-and-1915b-Waiver-Renewals.aspx" },
+  { icon: "&#x1F4CA;", label: "LAO CalAIM Report", url: "https://lao.ca.gov/Publications/Report/5003" },
+  { icon: "&#x2696;", label: "CA Legislation", url: "https://leginfo.legislature.ca.gov" },
+  { icon: "&#x1F4F0;", label: "DHCS Newsroom", url: "https://www.dhcs.ca.gov/newsroom-office-of-communications/" }
+];
+
+// ── Render helpers ────────────────────────────────────────────────────────────
+
+function renderNewsItem(n) {
+  var headline = n.url
+    ? '<a href="' + n.url + '" target="_blank">' + n.headline + ' &#x2197;</a>'
+    : n.headline;
+  return '<div class="news-item">'
+    + '<div><span class="tag ' + n.tag + '">' + n.label + '</span></div>'
+    + '<div class="headline">' + headline + '</div>'
+    + '<div class="summary">' + n.summary + '</div>'
+    + '<div class="source">' + n.source + '</div>'
+    + '</div>';
+}
+
+function renderPolicyItem(n) {
+  var key = n.key || "p0";
+  return '<div class="news-item">'
+    + '<div class="news-top"><div class="news-meta">'
+    + '<div><span class="tag ' + n.tag + '">' + n.label + '</span></div>'
+    + '<div class="headline">' + n.headline + '</div>'
+    + '</div>'
+    + (P[key] ? '<button class="dive-btn" onclick="dive(\'' + key + '\', this)">Deep dive</button>' : '')
+    + '</div>'
+    + '<div class="summary">' + n.summary + '</div>'
+    + '<div class="source">' + n.source + '</div>'
+    + '</div>';
+}
+
+function switchVersion(id) {
+  currentVersionId = id;
+  var versions = [CALAIM_DATA.currentVersion].concat(CALAIM_DATA.archive || []);
+  var v = versions.find(function(v) { return v.id === id; }) || CALAIM_DATA.currentVersion;
+
+  document.getElementById("newsScanDate").textContent = "Scan: " + v.scanDate;
+  document.getElementById("policyScanDate").textContent = "Scan: " + v.scanDate;
+  document.getElementById("versionSelect").value = id;
+
+  var banner = document.getElementById("archiveBanner");
+  id === "current" ? banner.classList.remove("visible") : banner.classList.add("visible");
+
+  // Daily updates (current version only)
+  var dailySection = document.getElementById("dailySection");
+  var dailyBanner = document.getElementById("dailyBanner");
+  var daily = (id === "current" && v.dailyUpdates && v.dailyUpdates.length > 0) ? v.dailyUpdates : [];
+  if (daily.length > 0) {
+    dailySection.style.display = "block";
+    dailyBanner.classList.add("visible");
+    document.getElementById("dailyScanDate").textContent = daily[0].date || "";
+    document.getElementById("dailySectionLabel").textContent = "Today's Updates &mdash; " + (daily[0].date || "");
+    document.getElementById("dailyFeed").innerHTML = daily.map(renderNewsItem).join("");
+  } else {
+    dailySection.style.display = "none";
+    dailyBanner.classList.remove("visible");
+  }
+
+  document.getElementById("newsFeed").innerHTML = (v.news && v.news.length)
+    ? v.news.map(renderNewsItem).join("")
+    : '<div class="empty-state">No news stories for this version.</div>';
+
+  document.getElementById("policyFeed").innerHTML = (v.policy && v.policy.length)
+    ? v.policy.map(renderPolicyItem).join("")
+    : '<div class="empty-state">No policy updates for this version.</div>';
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+
+function init(data) {
+  CALAIM_DATA = data;
+
+  // Show app, hide loader
+  document.getElementById("loadingState").style.display = "none";
+  document.getElementById("appState").style.display = "block";
+
+  // Last updated note
+  document.getElementById("updatedNote").textContent =
+    "Last updated: " + (data.lastUpdated || "");
+
+  // Countdown
+  var today = new Date();
+  function daysTo(d) { return Math.ceil((new Date(d) - today) / 86400000); }
+  var pills = [
+    { text: "Waiver expires in " + daysTo("2026-12-31") + "d", cls: "warning" },
+    { text: "Comment period: " + daysTo("2026-06-20") + "d left", cls: daysTo("2026-06-20") < 14 ? "urgent" : "warning" },
+    { text: "Work reqs in " + daysTo("2027-01-01") + "d", cls: "" }
+  ];
+  document.getElementById("countdownBar").innerHTML = pills.map(function(p) {
+    return '<div class="countdown-pill ' + p.cls + '"><span class="dot"></span>' + p.text + "</div>";
+  }).join("");
+
+  // Version picker
+  var select = document.getElementById("versionSelect");
+  var allVersions = [data.currentVersion].concat(data.archive || []);
+  allVersions.forEach(function(v) {
+    var opt = document.createElement("option");
+    opt.value = v.id;
+    opt.textContent = v.label || v.scanDate;
+    select.appendChild(opt);
+  });
+
+  // Actions
+  document.getElementById("actionItems").innerHTML = ACTIONS.map(function(a) {
+    return '<div class="action-item">'
+      + '<div class="action-title">' + a.title + "</div>"
+      + '<div class="action-body">' + a.body + "</div>"
+      + '<div class="action-footer">'
+      + '<span class="deadline">' + a.deadline + "</span>"
+      + '<button class="dive-btn" onclick="dive(\'' + a.key + '\', this)">Deep dive</button>'
+      + "</div></div>";
+  }).join("");
+
+  // News sources
+  document.getElementById("newsSources").innerHTML = NEWS_SOURCES.map(function(s) {
+    return '<a class="news-source-card" href="' + s.url + '" target="_blank">'
+      + '<div class="news-source-top"><span class="news-source-name">' + s.name + "</span>"
+      + '<span class="news-source-arrow">&#x2197;</span></div>'
+      + '<div class="news-source-desc">' + s.desc + "</div>"
+      + '<span class="news-source-tag ' + s.tagCls + '">' + s.tag + "</span></a>";
+  }).join("");
+
+  // Horizon
+  document.getElementById("horizonBody").innerHTML = HORIZON.map(function(h) {
+    return '<tr class="' + (h.urgent ? "urgent-row" : "") + '">'
+      + '<td class="date-cell">' + h.date + "</td>"
+      + "<td>" + h.label + "</td></tr>";
+  }).join("");
+
+  // Resources
+  document.getElementById("resourceGrid").innerHTML = RESOURCES.map(function(r) {
+    return '<a class="resource-link" href="' + r.url + '" target="_blank">'
+      + "<span>" + r.icon + "</span>" + r.label + "</a>";
+  }).join("");
+
+  // Load current version
+  switchVersion("current");
+}
+
+// Fetch data.json
+fetch("data.json?v=" + Date.now())
+  .then(function(r) {
+    if (!r.ok) throw new Error("Failed to load data.json: " + r.status);
+    return r.json();
+  })
+  .then(function(data) { init(data); })
+  .catch(function(err) {
+    document.getElementById("loadingState").innerHTML =
+      '<div class="loading" style="color:#ef4444">Failed to load dashboard data.<br><small>' + err.message + '</small></div>';
+  });
+</script>
+</body>
+</html>
