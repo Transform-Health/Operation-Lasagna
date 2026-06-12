@@ -1,10 +1,64 @@
 {
-  "lastUpdated": "June 11, 2026",
+  "lastUpdated": "June 12, 2026",
   "currentVersion": {
     "id": "current",
     "label": "June 8, 2026 (current)",
     "scanDate": "June 8, 2026",
     "dailyUpdates": [
+      {
+        "tag": "tag-federal",
+        "label": "Federal",
+        "headline": "State Condemns Federal Deferral of IHSS Funds, Warns of Immediate Harm to Hundreds of Thousands of Vulnerable Californians",
+        "url": "https://www.dhcs.ca.gov/news/state-condemns-federal-deferral-of-ihss-funds-warns-of-immediate-harm-to-hundreds-of-thousands-of-vulnerable-californians/",
+        "summary": "California is condemning a federal decision to defer In-Home Supportive Services (IHSS) funding, warning it will immediately harm hundreds of thousands of vulnerable Medi-Cal enrollees. For ECM and Community Supports providers, disruptions to IHSS directly affect the high-needs populations \u2014 including seniors and people with disabilities \u2014 who are core populations of focus for CalAIM care management.",
+        "source": "DHCS \u00b7 June 12, 2026",
+        "date": "June 12, 2026"
+      },
+      {
+        "tag": "tag-federal",
+        "label": "Federal",
+        "headline": "Final Rules for Medicaid Work Requirements Are Out. Here's What You Need To Know.",
+        "url": "https://kffhealthnews.org/medicaid/medicaid-work-requirements-final-rules-exemptions-trump-cms/",
+        "summary": "The Trump administration has released final rules requiring millions of Medicaid enrollees to document work or other qualifying activities to maintain coverage, with limited exemptions. This is directly relevant to California Medi-Cal as work requirements could trigger coverage losses among populations currently eligible for ECM and Community Supports, significantly affecting caseloads and program enrollment.",
+        "source": "KFF Health News \u00b7 June 12, 2026",
+        "date": "June 12, 2026"
+      },
+      {
+        "tag": "tag-waiver",
+        "label": "Waiver / Justice-Involved",
+        "headline": "California Releases First Impact Report on Groundbreaking Justice-Involved Reentry Initiative",
+        "url": "https://www.dhcs.ca.gov/news/california-releases-first-justice-involved-reentry-initiative-impact-report/",
+        "summary": "DHCS has published its first impact report on the CalAIM Justice-Involved Reentry Initiative, a key component of California's 1115 waiver that provides 90 days of pre-release Medi-Cal services to incarcerated individuals. ECM and Community Supports providers serving justice-involved populations should review this report as it establishes early performance benchmarks and program outcomes for this population of focus.",
+        "source": "DHCS \u00b7 June 12, 2026",
+        "date": "June 12, 2026"
+      },
+      {
+        "tag": "tag-mmcd",
+        "label": "Medi-Cal Managed Care",
+        "headline": "Attachment A: DHCS-Approved Youth Trauma Screening Tools for Specialty Mental Health Services Access Criteria",
+        "url": "https://www.dhcs.ca.gov/file/apl26-002attachmenta/",
+        "summary": "DHCS has released Attachment A associated with APL 26-002, providing approved youth trauma screening tools tied to specialty mental health services access criteria under Medi-Cal managed care. This is relevant to ECM providers serving children and youth populations, as trauma screening is often a trigger for ECM referrals and care planning.",
+        "source": "DHCS \u00b7 June 12, 2026",
+        "date": "June 12, 2026"
+      },
+      {
+        "tag": "tag-mmcd",
+        "label": "Medi-Cal Managed Care",
+        "headline": "Prior Authorization Metrics Report",
+        "url": "https://www.dhcs.ca.gov/file/prior-authorization-metrics-template/",
+        "summary": "DHCS has released an updated Prior Authorization Metrics Report template, which tracks managed care plan performance on authorization timelines and decisions. ECM and Community Supports providers should monitor this data as prior authorization delays can directly affect timely access to community-based services for high-needs members.",
+        "source": "DHCS \u00b7 June 12, 2026",
+        "date": "June 12, 2026"
+      },
+      {
+        "tag": "tag-mmcd",
+        "label": "Medi-Cal Managed Care",
+        "headline": "Attachment A: Network Provider Agreement Template Checklist",
+        "url": "https://www.dhcs.ca.gov/file/file-189187/",
+        "summary": "DHCS has published an updated Network Provider Agreement Template Checklist, a tool used by Medi-Cal managed care plans to ensure contracted provider agreements meet state requirements. ECM and Community Supports providers contracting with managed care plans should be aware of any updated network adequacy or agreement requirements reflected in this checklist.",
+        "source": "DHCS \u00b7 June 12, 2026",
+        "date": "June 12, 2026"
+      },
       {
         "tag": "tag-federal",
         "label": "Federal",
