@@ -1,10 +1,55 @@
 {
-  "lastUpdated": "June 12, 2026",
+  "lastUpdated": "June 13, 2026",
   "currentVersion": {
     "id": "current",
     "label": "June 8, 2026 (current)",
     "scanDate": "June 8, 2026",
     "dailyUpdates": [
+      {
+        "tag": "tag-federal",
+        "label": "Federal",
+        "headline": "State Condemns Federal Deferral of IHSS Funds, Warns of Immediate Harm to Hundreds of Thousands of Vulnerable Californians",
+        "url": "https://www.dhcs.ca.gov/news/state-condemns-federal-deferral-of-ihss-funds-warns-of-immediate-harm-to-hundreds-of-thousands-of-vulnerable-californians/",
+        "summary": "California is pushing back against a federal decision to defer In-Home Supportive Services (IHSS) funding, warning that the move could immediately harm hundreds of thousands of vulnerable Medi-Cal beneficiaries. For ECM and Community Supports providers, disruptions to IHSS funding threaten a key long-term services and supports (LTSS) program that intersects directly with CalAIM care coordination for high-need populations.",
+        "source": "DHCS \u00b7 June 13, 2026",
+        "date": "June 13, 2026"
+      },
+      {
+        "tag": "tag-waiver",
+        "headline": "California Releases First Impact Report on Groundbreaking Justice-Involved Reentry Initiative",
+        "label": "Waiver",
+        "url": "https://www.dhcs.ca.gov/news/california-releases-first-justice-involved-reentry-initiative-impact-report/",
+        "summary": "DHCS released its first impact report on California's Justice-Involved Reentry Initiative, a flagship CalAIM 1115 waiver component that provides Medi-Cal coverage and ECM services to incarcerated individuals 90 days prior to release. This report offers early outcome data relevant to ECM providers serving the justice-involved population of focus and may inform future waiver renewal discussions.",
+        "source": "DHCS \u00b7 June 13, 2026",
+        "date": "June 13, 2026"
+      },
+      {
+        "tag": "tag-mmcd",
+        "label": "Medi-Cal Managed Care",
+        "headline": "Attachment A: DHCS-Approved Youth Trauma Screening Tools for Specialty Mental Health Services Access Criteria",
+        "url": "https://www.dhcs.ca.gov/file/apl26-002attachmenta/",
+        "summary": "DHCS published Attachment A to APL 26-002, specifying approved youth trauma screening tools to be used as access criteria for Specialty Mental Health Services under Medi-Cal managed care. Managed care plans and ECM providers serving children and youth populations of focus should review these tools, as they may affect referral pathways and care coordination workflows.",
+        "source": "DHCS \u00b7 June 13, 2026",
+        "date": "June 13, 2026"
+      },
+      {
+        "tag": "tag-mmcd",
+        "label": "Medi-Cal Managed Care",
+        "headline": "Prior Authorization Metrics Report",
+        "url": "https://www.dhcs.ca.gov/file/prior-authorization-metrics-template/",
+        "summary": "DHCS released a Prior Authorization Metrics Report template, which managed care plans are required to use for tracking and reporting authorization data under Medi-Cal. This is relevant to ECM and Community Supports providers given ongoing attention to streamlining prior authorization and presumptive authorization processes under CalAIM.",
+        "source": "DHCS \u00b7 June 13, 2026",
+        "date": "June 13, 2026"
+      },
+      {
+        "tag": "tag-mmcd",
+        "label": "Medi-Cal Managed Care",
+        "headline": "Attachment A: Network Provider Agreement Template Checklist",
+        "url": "https://www.dhcs.ca.gov/file/file-189187/",
+        "summary": "DHCS posted a Network Provider Agreement Template Checklist, a tool used by managed care plans to ensure provider agreements meet contractual and network adequacy requirements. ECM and Community Supports providers contracting with Medi-Cal managed care plans should be aware of this checklist as it may affect agreement standards and contracting processes.",
+        "source": "DHCS \u00b7 June 13, 2026",
+        "date": "June 13, 2026"
+      },
       {
         "tag": "tag-federal",
         "label": "Federal",
