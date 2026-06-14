@@ -1,10 +1,55 @@
 {
-  "lastUpdated": "June 13, 2026",
+  "lastUpdated": "June 14, 2026",
   "currentVersion": {
     "id": "current",
     "label": "June 8, 2026 (current)",
     "scanDate": "June 8, 2026",
     "dailyUpdates": [
+      {
+        "tag": "tag-federal",
+        "label": "Federal",
+        "headline": "State Condemns Federal Deferral of IHSS Funds, Warns of Immediate Harm to Hundreds of Thousands of Vulnerable Californians",
+        "url": "https://www.dhcs.ca.gov/news/state-condemns-federal-deferral-of-ihss-funds-warns-of-immediate-harm-to-hundreds-of-thousands-of-vulnerable-californians/",
+        "summary": "California is pushing back against a federal decision to defer In-Home Supportive Services (IHSS) funding, warning that the move threatens immediate harm to hundreds of thousands of vulnerable residents who rely on these services. For ECM and Community Supports providers, this federal funding disruption could signal broader financial instability for Medi-Cal home- and community-based services that overlap with CalAIM delivery.",
+        "source": "DHCS \u00b7 June 14, 2026",
+        "date": "June 14, 2026"
+      },
+      {
+        "tag": "tag-waiver",
+        "label": "Waiver",
+        "headline": "California Releases First Impact Report on Groundbreaking Justice-Involved Reentry Initiative",
+        "url": "https://www.dhcs.ca.gov/news/california-releases-first-justice-involved-reentry-initiative-impact-report/",
+        "summary": "DHCS released its first impact report on the Justice-Involved Reentry Initiative, a flagship CalAIM program that provides Medi-Cal coverage and care coordination to individuals 90 days prior to release from incarceration. This is directly relevant to ECM providers serving the justice-involved population of focus and to tracking outcomes under California's 1115 waiver authority.",
+        "source": "DHCS \u00b7 June 14, 2026",
+        "date": "June 14, 2026"
+      },
+      {
+        "tag": "tag-mmcd",
+        "label": "Medi-Cal Managed Care",
+        "headline": "Attachment A: Network Provider Agreement Template Checklist",
+        "url": "https://www.dhcs.ca.gov/file/file-189187/",
+        "summary": "DHCS has published an updated Network Provider Agreement Template Checklist, which governs the contractual requirements between Medi-Cal managed care plans and their network providers. ECM and Community Supports providers contracting with MCPs should review this checklist to ensure their provider agreements meet current DHCS standards.",
+        "source": "DHCS \u00b7 June 14, 2026",
+        "date": "June 14, 2026"
+      },
+      {
+        "tag": "tag-mmcd",
+        "label": "Medi-Cal Managed Care",
+        "headline": "Prior Authorization Metrics Report",
+        "url": "https://www.dhcs.ca.gov/file/prior-authorization-metrics-template/",
+        "summary": "DHCS has released a Prior Authorization Metrics Report template, which tracks managed care plan performance on prior authorization timeliness and outcomes. This is relevant to ECM and CS providers who are subject to or seeking presumptive authorization policies, as it reflects DHCS oversight of MCP authorization practices.",
+        "source": "DHCS \u00b7 June 14, 2026",
+        "date": "June 14, 2026"
+      },
+      {
+        "tag": "tag-mmcd",
+        "label": "Medi-Cal Managed Care",
+        "headline": "Quality Measures for Encounter Data \u2014 Version 2.0",
+        "url": "https://www.dhcs.ca.gov/file/quality-measures-for-encounter-data/",
+        "summary": "DHCS has published Version 2.0 of its Quality Measures for Encounter Data guidance, updating the framework that managed care plans use to report and validate service delivery data. Accurate encounter data submission is critical for ECM and Community Supports services, as it underpins rate-setting, outcome measurement, and CalAIM accountability reporting.",
+        "source": "DHCS \u00b7 June 14, 2026",
+        "date": "June 14, 2026"
+      },
       {
         "tag": "tag-federal",
         "label": "Federal",
